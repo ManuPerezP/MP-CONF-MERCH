@@ -6,17 +6,32 @@
   "scripts": {
     "dev": "webpack serve ",
     "build": "webpack --mode production",
+    "format": "prettier --write '{*.js,src/**/*.{js,jsx}}'",
+    "lint": "eslint src/ --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test",
+      "...": "..."
+    }
+  },
   "dependencies": {
+    "@babel/runtime": "^7.15.4",
+    "@react-google-maps/api": "^2.4.1",
+    "axios": "0.22.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-paypal-button-v2": "^2.6.3",
+    "react-router-dom": "5.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
+    "@babel/plugin-transform-runtime": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
     "@babel/preset-react": "^7.14.5",
     "babel-eslint": "10.1.0",
@@ -31,6 +46,7 @@
     "eslint-plugin-react": "7.26.1",
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.2",
+    "husky": "^7.0.2",
     "mini-css-extract-plugin": "^2.4.2",
     "prettier": "2.4.1",
     "webpack": "^5.58.1",
